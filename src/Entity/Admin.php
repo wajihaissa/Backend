@@ -2,11 +2,33 @@
 
 namespace App\Entity;
 
+use App\Repository\AdminRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: AdminRepository::class)]
 class Admin extends User
 {
+    #[ORM\Column(length: 255)]
+    private ?string $role = null;
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): static
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    // Implementing UserInterface methods
+    public function getRoles(): array
+    {
+        return ['ROLE_ADMIN'];
+    }
+
     public function viewAllActivities(): array
     {
         // Implement logic to view all activities

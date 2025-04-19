@@ -18,7 +18,9 @@ class ProviderType extends AbstractType
             ->add('email', EmailType::class)
             ->add('password', PasswordType::class)
             ->add('name', TextType::class)
-            ->add('revenue', TextType::class);
+            ->add('revenue', TextType::class, [
+                'required' => false,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

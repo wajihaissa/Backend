@@ -3,3 +3,15 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+register_provider:
+    path: /register/provider
+    controller: App\Controller\SecurityController::register
+    defaults:
+        type: provider
+
+register_client:
+    path: /register/client
+    controller: App\Controller\SecurityController::register
+    defaults:
+        type: client

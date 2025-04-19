@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Providers{% endblock %}
+
+{% block body %}
+    <h1>Providers</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for provider in providers %}
+                <tr>
+                    <td>{{ provider.id }}</td>
+                    <td>{{ provider.fullname }}</td>
+                    <td>{{ provider.email }}</td>
+                    <td>{{ provider.phone }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

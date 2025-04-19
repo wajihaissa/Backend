@@ -37,4 +37,27 @@ class Client extends User
 
         return $this;
     }
+
+    // Implementing UserInterface methods
+    public function getUsername(): string
+    {
+        // Use email as the username for authentication purposes
+        return $this->getEmail();
+    }
+
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function getSalt(): ?string
+    {
+        // Return null if using modern password hashing algorithms
+        return null;
+    }
+
+    public function eraseCredentials(): void
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+    }
 }
